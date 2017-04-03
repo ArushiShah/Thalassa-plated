@@ -78,23 +78,8 @@
 			<div class="zerogrid">
 				<div id="menu-trigger">Menu</div>    
 				<ul id="menu" style="display: none;">
-					<li><a href="index.html">Home</a></li>
-					<li>
-						<a href="#">Menu <i class="fa fa-chevron-down"></i></a>
-						<ul>
-							<li>
-								<a href="/1menus">Friday</a>
-							</li>
-							<li>
-								<a href="/2menus">Sunday Brunch</a>
-							</li>
-							<li>
-								<a href="/3menus">Weekday</a>
-							</li>
-							
-						</ul>
-					</li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Contact</a></li>
 					<li style="float:right !important">
 						<form method="get" action="/search" id="search" class="f-right">
 							<input name="q" type="text" size="40" placeholder="Search..." />
@@ -132,7 +117,8 @@
 				<div class="row wrap-box"><!--Start Box-->
 					<div class="col-1-2">
 						<div class="wrap-col">
-							<h1>Welcome To<br><span></span></h1>
+							<h1>Welcome To Thalassa
+							<br><span></span></h1>
 							<p class="lead"></p>
 							<p style="color: #111">
 							
@@ -142,18 +128,10 @@
 							<b>
 							{{item['title']}}
 							<br>
-							
+							<form method=['GET'] action="menus" ><button type="submit" class="button bt1"  value="{{item['id']}}" name="recipe">View Recipes for {{item['title']}}</button></form>
 							<br>
 							{% endfor %}
-							<a class="button bt1" href="1menus">View Menu for Friday</a>
-							<br>
-							<br>
-							<a class="button bt1" href="2menus">View Menu for Sunday Brunch</a>
-							<br>
-							<br>
-							<a class="button bt1" href="3menus">View Menu for Weekday</a>
-							<br>
-							<br>
+							
 							</p>
 							
 						</div>

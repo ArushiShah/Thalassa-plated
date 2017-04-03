@@ -27,11 +27,12 @@ def display_menu():
 def success():
 	return render_template('success.html')
 
-@app.route('/1menus')
-def post_menu():
-	url = 'https://plated-coding-challenge.herokuapp.com//v1/menus/331/recipes.json'
+@app.route('/menus')
+def display_recipe():
+	x=request.args.get('recipe')
+	url = 'https://plated-coding-challenge.herokuapp.com/v1/menus/%s/recipes.json' % x
 	headers = {'Authorization':'Token token="JQK2H4QjyhVIqZVyEPJNSwtt"','Content-Type': 'application/json'}
-	
+	print(x)
 	# this issues a GET to the url. replace "get" with "post", "head",
 	# "put", "patch"... to make a request using a different method
 	r = requests.get(url, headers=headers)
@@ -41,33 +42,7 @@ def post_menu():
 
 	return render_template('menus.html', response=response)
 
-@app.route('/2menus')
-def post_menu2():
-	url = 'https://plated-coding-challenge.herokuapp.com//v1/menus/329/recipes.json'
-	headers = {'Authorization':'Token token="JQK2H4QjyhVIqZVyEPJNSwtt"','Content-Type': 'application/json'}
-	
-	# this issues a GET to the url. replace "get" with "post", "head",
-	# "put", "patch"... to make a request using a different method
-	r = requests.get(url, headers=headers)
 
-	response = json.loads(r.text)
-	
-
-	return render_template('menus.html', response=response)
-
-@app.route('/3menus')
-def post_menu3():
-	url = 'https://plated-coding-challenge.herokuapp.com//v1/menus/332/recipes.json'
-	headers = {'Authorization':'Token token="JQK2H4QjyhVIqZVyEPJNSwtt"','Content-Type': 'application/json'}
-	
-	# this issues a GET to the url. replace "get" with "post", "head",
-	# "put", "patch"... to make a request using a different method
-	r = requests.get(url, headers=headers)
-
-	response = json.loads(r.text)
-	
-
-	return render_template('menus.html', response=response)
 
 	
 if __name__ == '__main__':
